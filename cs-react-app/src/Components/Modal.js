@@ -1,8 +1,14 @@
 import React from "react";
 import styled from "styled-components";
+import ReactDom from "react-dom";
+
+const handleContinueButton = () => {
+  console.log("Continue button clicked");
+}
 
 function Modal({ setOpenModal }) {
-  return (
+
+  return ReactDom.createPortal(
     <ModalBackground>
       <ModalContainer>
         <TitleCloseBtn>
@@ -16,12 +22,13 @@ function Modal({ setOpenModal }) {
         </TitleCloseBtn>
         <ModalTitle></ModalTitle>
         <ModalBody>
-          <BodyButton>Continue</BodyButton>
+          <BodyButton onClick={handleContinueButton}>Continue</BodyButton>
         </ModalBody>
         <ModalFooter>
         </ModalFooter>
       </ModalContainer>
-    </ModalBackground>
+    </ModalBackground>,
+    document.getElementById("portal")
   );
 }
 
