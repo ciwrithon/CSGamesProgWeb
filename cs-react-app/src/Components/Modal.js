@@ -1,39 +1,98 @@
 import React from "react";
-import "./Modal.css";
+import styled from "styled-components";
 
 function Modal({ setOpenModal }) {
   return (
-    <div className="modalBackground">
-      <div className="modalContainer">
-        <div className="titleCloseBtn">
-          <button
+    <ModalBackground>
+      <ModalContainer>
+        <TitleCloseBtn>
+          <CloseButton
             onClick={() => {
               setOpenModal(false);
             }}
           >
             X
-          </button>
-        </div>
-        <div className="title">
-          <h1>Are You Sure You Want to Continue?</h1>
-        </div>
-        <div className="body">
-          <p>The next page looks amazing. Hope you want to go there!</p>
-        </div>
-        <div className="footer">
-          <button
-            onClick={() => {
-              setOpenModal(false);
-            }}
-            id="cancelBtn"
-          >
-            Cancel
-          </button>
-          <button>Continue</button>
-        </div>
-      </div>
-    </div>
+          </CloseButton>
+        </TitleCloseBtn>
+        <ModalTitle></ModalTitle>
+        <ModalBody></ModalBody>
+        <ModalFooter>
+          <FooterButton>Continue</FooterButton>
+        </ModalFooter>
+      </ModalContainer>
+    </ModalBackground>
   );
 }
 
 export default Modal;
+
+const ModalBackground = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(200, 200, 200, 0.7);
+`;
+
+const ModalContainer = styled.div`
+  width: 500px;
+  height: 500px;
+  border-radius: 12px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+`;
+
+const TitleCloseBtn = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`;
+
+const CloseButton = styled.button`
+  background-color: transparent;
+  border: none;
+  font-size: 25px;
+  cursor: pointer;
+`;
+
+const ModalTitle = styled.div`
+  display: inline-block;
+  text-align: center;
+  margin-top: 10px;
+`;
+
+const ModalBody = styled.div`
+  flex: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.7rem;
+  text-align: center;
+`;
+
+const ModalFooter = styled.div`
+  flex: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  margin-top: auto;
+`;
+
+const FooterButton = styled.button`
+  width: 150px;
+  height: 45px;
+  margin: 10px;
+  border: none;
+  background-color: cornflowerblue;
+  color: white;
+  border-radius: 8px;
+  font-size: 20px;
+  cursor: pointer;
+`;
