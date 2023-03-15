@@ -15,9 +15,10 @@ function Modal({ setOpenModal }) {
           </CloseButton>
         </TitleCloseBtn>
         <ModalTitle></ModalTitle>
-        <ModalBody></ModalBody>
+        <ModalBody>
+          <BodyButton>Continue</BodyButton>
+        </ModalBody>
         <ModalFooter>
-          <FooterButton>Continue</FooterButton>
         </ModalFooter>
       </ModalContainer>
     </ModalBackground>
@@ -68,7 +69,7 @@ const ModalTitle = styled.div`
 `;
 
 const ModalBody = styled.div`
-  flex: 50%;
+  flex: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -85,7 +86,7 @@ const ModalFooter = styled.div`
   margin-top: auto;
 `;
 
-const FooterButton = styled.button`
+const BodyButton = styled.button`
   width: 150px;
   height: 45px;
   margin: 10px;
