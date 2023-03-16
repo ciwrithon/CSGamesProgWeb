@@ -1,12 +1,18 @@
-import React from "react";
+import { React, useState } from "react";
 import styled from "styled-components";
 import ReactDom from "react-dom";
-
-const handleContinueButton = () => {
-  console.log("Continue button clicked");
-}
+import { Navigate } from "react-router-dom";
 
 function Modal({ setOpenModal }) {
+  const [shouldRedirect, setShouldRedirect] = useState(false);
+
+  const handleContinueButton = () => {
+    setShouldRedirect(true);
+  }
+
+  if (shouldRedirect) {
+    return <Navigate to="/continue-page" />;
+  }
 
   return ReactDom.createPortal(
     <ModalBackground>

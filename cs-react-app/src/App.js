@@ -1,45 +1,20 @@
-import React, { useState } from "react";
-import styled from "styled-components";
-import Modal from "./Components/Modal";
-
-const AppWrapper = styled.div`
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  font-family: "Nunito", sans-serif;
-`;
-
-export const Button = styled.button`
-  width: 200px;
-  height: 40px;
-  border: none;
-  border-radius: 6px;
-  background-color: cornflowerblue;
-  color: white;
-  cursor: pointer;
-
-  margin-top: auto;
-  margin-bottom: auto;
-`;
+import React from "react";
+import Card from "./Components/Card";
+import Main from "./Components/Main";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
-  const [modalOpen, setModalOpen] = useState(false);
 
   return (
-    <AppWrapper>
-      <Button
-        onClick={() => {
-          setModalOpen(true);
-        }}
-      >
-        Open
-      </Button>
-
-      {modalOpen && <Modal setOpenModal={setModalOpen} />}
-    </AppWrapper>
+    <>
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/continue-page" element={<Card />} />
+      </Routes>
+    </>
   );
 }
 
 export default App;
+
+
