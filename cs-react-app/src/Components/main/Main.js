@@ -8,6 +8,8 @@ function Main() {
     return (
         <>
             <div className="mainWrapper">
+
+                <img width="100%" src={require("../../assets/cuteCat.png")}></img>
                 <button className="openButton"
                     onClick={() => {
                         setModalOpen(true);
@@ -15,7 +17,7 @@ function Main() {
                 >
                     Open
                 </button>
-
+                <p>:)</p>
                 {modalOpen && <Modal setOpenModal={setModalOpen} />}
             </div>
         </>
